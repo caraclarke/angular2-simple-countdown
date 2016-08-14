@@ -1,5 +1,5 @@
-import {FORM_DIRECTIVES} from "angular2/common";
-import {Component} from "angular2/core";
+import {FORM_DIRECTIVES} from "@angular/forms";
+import {Component} from "@angular/core";
 
 @Component({
     selector: 'count-down',
@@ -29,8 +29,11 @@ export class CountDown {
         }
 
 
-        var dateDifference = new Date(this.end) - new Date();
-        var lastUnit = this.units[this.units.length - 1],
+        let dateEnd:any = new Date(this.end);
+        let date:any = new Date();
+
+        let dateDifference = dateEnd - date;
+        let lastUnit = this.units[this.units.length - 1],
             unitConstantForMillisecs = {
                 weeks: (1000 * 60 * 60 * 24 * 7),
                 days: (1000 * 60 * 60 * 24),
@@ -42,7 +45,7 @@ export class CountDown {
             unitsLeft = {},
             returnString = '',
             totalMillisecsLeft = dateDifference,
-            i,
+            i:any,
             unit:any;
         for (i in this.units) {
             if (this.units.hasOwnProperty(i)) {
